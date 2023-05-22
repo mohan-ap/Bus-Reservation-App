@@ -1,0 +1,35 @@
+.body{
+    background-color: rgb(223, 85, 85);
+    padding: 30px;
+}
+
+
+@media(min-width:801px){
+    .container{
+        margin-top: 30px;
+        margin-left: 30%;
+        width: 40%;
+    }
+}
+#addbus{
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}   
+
+fieldset{
+    border: 1px solid rgb(226, 226, 226);
+    padding:30px;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.btn{
+    color: white;
+    background-color:rgb(36, 34, 34);
+    margin-left:170px ;
+}
+.btn:hover{
+    color:white;
+    background-color:rgb(223, 69, 69);
+}

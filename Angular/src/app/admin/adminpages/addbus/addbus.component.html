@@ -1,0 +1,84 @@
+<div class="body">
+    <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+    <h2 id="addbus">Add Bus</h2>
+    <div class="container">
+        <div>
+            <fieldset>
+                <form [formGroup]="addBusForm" (ngSubmit)="add(addBusForm)">
+                    <div>
+                        <label>Bus name</label>
+                        <input type="text" name="busName" class="form-control" formControlName="busName"
+                            [class.is-invalid]="addBusForm.controls['busName'].touched && addBusForm.controls['busName'].invalid">
+                        <div *ngIf=" addBusForm.controls['busName'].touched && addBusForm.controls['busName'].invalid">
+                            <small *ngIf="addBusForm.controls['busName'].errors && 
+            addBusForm.controls['busName'].errors['required']" class="text-danger">Bus name is required</small>
+                        </div>
+                    </div><br>
+                    <div>
+                        <label>Number of seats</label>
+                        <input type="text" name="numberOfSeats" class="form-control" formControlName="numberOfSeats"
+                            [class.is-invalid]="addBusForm.controls['numberOfSeats'].touched && addBusForm.controls['numberOfSeats'].invalid">
+                        <small
+                            *ngIf=" addBusForm.controls['numberOfSeats'].touched && addBusForm.controls['numberOfSeats'].errors?.['required']"
+                            class="text-danger">
+                            Number of seats is required</small>
+                    </div><br>
+                    <div>
+                        <label>Source Location</label>
+                        <input type="text" name="source" class="form-control" formControlName="source"
+                            [class.is-invalid]="addBusForm.controls['source'].touched && addBusForm.controls['source'].invalid">
+                        <small
+                            *ngIf=" addBusForm.controls['source'].touched && addBusForm.controls['source'].errors?.['required']"
+                            class="text-danger">
+                            Source Location required</small>
+                    </div><br>
+                    <div>
+                        <label>Destination Location</label>
+                        <input type="text" name="destination" class="form-control" formControlName="destination"
+                            [class.is-invalid]="addBusForm.controls['destination'].touched && addBusForm.controls['destination'].invalid">
+                        <small
+                            *ngIf=" addBusForm.controls['destination'].touched && addBusForm.controls['destination'].errors?.['required']"
+                            class="text-danger">
+                            Destination Location is required</small>
+                    </div><br>
+                    <div>
+                        <label>Price</label>
+                        <input type="text" name="price" class="form-control" formControlName="price"
+                            [class.is-invalid]="addBusForm.controls['price'].touched && addBusForm.controls['price'].invalid">
+                        <small
+                            *ngIf=" addBusForm.controls['price'].touched && addBusForm.controls['price'].errors?.['required']"
+                            class="text-danger">
+                            price is required</small>
+                    </div><br>
+                    <div>
+                        <label>Start Time</label>
+                        <input type="datetime-local" name="boardingTime" class="form-control"
+                            formControlName="boardingTime" [min]="getMinDate()" [max]="getMaxDate()"
+                            [class.is-invalid]="addBusForm.controls['boardingTime'].touched && addBusForm.controls['boardingTime'].invalid">
+                        <small
+                            *ngIf=" addBusForm.controls['boardingTime'].touched && addBusForm.controls['boardingTime'].errors?.['required']"
+                            class="text-danger">
+                            start time is required</small>
+                    </div><br>
+                    <div>
+                        <label>End Time</label>
+                        <input type="datetime-local" name="droppingTime" class="form-control"
+                            formControlName="droppingTime" [min]="getMinDate()" [max]="getMaxDate()"
+                            [class.is-invalid]="addBusForm.controls['droppingTime'].touched && addBusForm.controls['droppingTime'].invalid">
+                        <small
+                            *ngIf=" addBusForm.controls['droppingTime'].touched && addBusForm.controls['droppingTime'].errors?.['required']"
+                            class="text-danger">
+                            end time is required</small>
+                    </div><br>
+                    <button class="btn btn-success" id="button" [disabled]="!addBusForm.valid">Add</button>
+                </form>
+            </fieldset>
+        </div>
+
+    </div>
+</div>

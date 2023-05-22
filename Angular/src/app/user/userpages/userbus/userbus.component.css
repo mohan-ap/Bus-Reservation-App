@@ -1,0 +1,65 @@
+@media(min-width:801px){
+    .container{
+        margin-left: 25%;
+        width: 50%;
+    }
+}
+
+.is-invalid {
+    border-color: red;
+  }
+
+.body{
+    background-color: rgb(252, 81, 81);
+    padding: 30px;
+}
+
+.passen{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+.main{
+    background-color: whitesmoke;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+.passenger{
+    background-color: whitesmoke;
+    padding: 30px;
+}
+
+.passengerForm{
+    background-color:white;
+    margin: 5px;
+    padding: 30px;
+}
+
+
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.seat{
+    color: rgb(2, 2, 107);
+}
+
+.btn{
+    float: right;
+}
+
+.proceed{
+    padding: 10px;
+}
+
+.price{
+    color: darkred;
+    font-weight: 500;
+}

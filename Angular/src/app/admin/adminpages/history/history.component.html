@@ -1,0 +1,54 @@
+<div class="body">
+    <div class="container">
+      <h2>Booking History</h2>
+      <ng-container *ngIf="errorMessage; else historyFound">
+        No history found
+      </ng-container>
+      <ng-template #historyFound>
+        <fieldset class="fs1">
+          <div class="row">
+            <div class="col">
+              <strong>Bus Name</strong>
+            </div>
+            <div class="col">
+              <strong>Seat Number</strong>
+            </div>
+            <div class="col">
+              <strong>Source</strong>
+            </div>
+            <div class="col">
+              <strong>Destination</strong>
+            </div>
+            <div class="col">
+              <strong>Journey Date</strong>
+            </div>
+            <div class="col">
+              <strong>Passenger Name</strong>
+            </div>
+            <div class="col" id="price">
+              <strong>Age</strong>
+            </div>
+            <div class="col">
+              <strong>Fare</strong>
+            </div>
+          </div>
+        </fieldset>
+  
+        <fieldset class="fs2">
+          <div class="row" *ngFor="let bus of data; let i = index">
+            <div class="row" id="buses">
+              <div class="col">{{ bus.busName }}</div>
+              <div class="col">{{ bus.seatNumber }}</div>
+              <div class="col">{{ bus.source }}</div>
+              <div class="col">{{ bus.destination }}</div>
+              <div class="col">{{ modifiedBuses[i].journeyDate }}</div>
+              <div class="col">{{ bus.passangerName }}</div>
+              <div class="col">{{ bus.age }}</div>
+              <div class="col">{{ bus.fare }}</div>
+            </div>
+          </div>
+        </fieldset>
+      </ng-template>
+    </div>
+  </div>
+  

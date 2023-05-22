@@ -1,0 +1,36 @@
+<div class="body">
+
+    <h2 id="homeForm">For Booking</h2>
+    <p id="para">Where you like to go ?</p>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    <div class="container">
+      <div class="homeForm">
+        <fieldset>
+          <div class="error" *ngIf="homeForm.errors?.['sameLocation']">Source and destination locations cannot be the
+            same.</div>
+          <form [formGroup]="homeForm" (ngSubmit)="search(homeForm)" method="post">
+            <div class="form-group">
+              <label>Source Location</label>
+              <ngx-select formControlName="source" [items]="options" class="form-control" placeholder=""
+                          aria-required="true"></ngx-select>
+            </div>
+            <div class="form-group">
+              <label>Destination Location</label>
+              <ngx-select formControlName="destination" [items]="options" class="form-control" placeholder=""
+                          aria-required="true"></ngx-select>
+            </div>
+  
+            <div>
+              <label>Journey Date</label>
+              <input type="date" [min]="minDate()" [max]="maxDate()" name="boardingTime" class="form-control"
+                formControlName="boardingTime" placeholder="boardingTime"
+                [class.is-invalid]="homeForm.controls['boardingTime'].touched && homeForm.controls['boardingTime'].invalid">
+            </div><br>
+            <button class="btn btn-primary" [disabled]="!homeForm.valid" id="button">Search Buses</button>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,91 @@
+.body{
+    background-color: rgb(223, 85, 85);
+    padding: 50px;
+}
+
+.alert{
+    background-color: #ffffff;
+    color: black;
+}
+
+#homeForm{
+    text-align: center;
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+@media(min-width:801px){
+    .container{
+        margin-top: 30px;
+        margin-left: 30%;
+        width: 40%;
+    }
+}
+
+fieldset{
+    border: 1px solid rgb(226, 226, 226);
+    padding:30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    margin-bottom: 50px;
+}
+
+
+.btn{
+    color: white;
+    background-color:rgb(36, 34, 34);
+    margin-left: 150px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .btn {
+      margin-left: 50px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .btn {
+      margin-left: 20px;
+    }
+  }
+.btn:hover{
+    color: rgb(255, 255, 255);
+    background-color:rgb(0, 107, 0);
+}
+.error{
+    color: rgb(180, 39, 39);
+}
+
+
+.ng-dropdown-panel {
+    background-color: #ffffff; /* Set the background color of the dropdown list */
+    border: 1px solid #e0e0e0; /* Set the border of the dropdown list */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Set the shadow of the dropdown list */
+}
+  
+.ng-option {
+    padding: 0.5rem 1rem; /* Set the padding of each option in the dropdown list */
+    cursor: pointer; /* Set the cursor style when hovering over an option in the dropdown list */
+}
+  
+.ng-option.ng-option-selected {
+    background-color: #e0e0e0; /* Set the background color of the selected option in the dropdown list */
+}
+
+label{
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+#para{
+    text-align: center; 
+    color: #ffffff;
+
+}
+input{
+    margin-bottom: 10px;
+}
+ngx-select{
+    margin-bottom: 20px;
+}

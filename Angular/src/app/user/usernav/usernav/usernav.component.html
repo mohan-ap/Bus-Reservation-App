@@ -1,0 +1,32 @@
+<div *ngIf="!isLoggedIn()">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Bus Ticket Booking</a>
+        <a class="navbar-brand"><i class="fa-solid fa-user"></i> user : Guest</a>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a routerLink="" class="nav-link">Home </a></li>
+        <li class="nav-item">
+          <button (click)="login()" >Login</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="isLoggedIn()">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Bus Ticket Booking</a>
+        <a class="navbar-brand">user : {{name}}</a>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a routerLink="userhistory" class="nav-link">history</a></li>
+        <li class="nav-item"><a routerLink="" class="nav-link">Home</a></li>
+        <li class="nav-item"><a (click)="clear()" class="nav-link">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>

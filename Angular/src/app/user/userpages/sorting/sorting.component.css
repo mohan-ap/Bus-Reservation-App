@@ -1,0 +1,44 @@
+.body{
+    background-color: rgb(223, 85, 85);
+    padding: 20px;
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+    color: red;
+    padding-left: 10px;
+}
+
+.fs1{
+    border: 1px solid whitesmoke;
+    padding: 30px;
+    background-color: whitesmoke;
+    color:  rgb(10, 9, 9);
+}
+
+.fs2{
+    border: 1px solid whitesmoke;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 33px;
+    padding-right: 10px;
+    background-color: rgb(14, 13, 13);
+    
+}
+
+#buses{
+    border: 1px solid rgb(8, 8, 8);
+    padding: 30px;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+}
+
+h2{
+    text-align: center;
+    color:white ;
+}
+
+.col{
+    padding: 5px;
+}

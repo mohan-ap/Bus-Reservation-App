@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">Bus Ticket Booking</a>
+    </div>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <!-- <li class="nav-item"><a routerLink="login" class="nav-link"> Login</a></li> -->
+        <button (click)="login()">Login with Google <i class="fa-brands fa-google"></i></button>
+      <!-- <li class="nav-item"><a routerLink="adminpage/addbus" class="nav-link">Admin</a></li> -->
+      <button (click)="login()">Admin</button>
+    </ul>
+  </div>
+</nav>
+<div class="body">
+
+  <h2 id="homeForm">For Booking</h2>
+  <p id="para">Where you like to go ?</p>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div class="container">
+    <div class="homeForm">
+      <fieldset>
+        <div class="error" *ngIf="homeForm.errors?.['sameLocation']">Source and destination locations cannot be the
+          same.</div>
+        <form [formGroup]="homeForm" (ngSubmit)="search(homeForm)" method="post">
+          <div class="form-group">
+            <i class="fa-brands fa-sourcetree"></i>  <label>Source Location</label>
+            <ngx-select formControlName="source" [items]="options" class="form-control" placeholder=""
+                        aria-required="true"></ngx-select>
+          </div>
+          <div class="form-group">
+            <i class="fa-sharp fa-solid fa-location-dot"></i>    <label>Destination Location</label> 
+            <ngx-select formControlName="destination" [items]="options" class="form-control" placeholder=""
+                        aria-required="true"></ngx-select>
+          </div>
+          <div>
+            <label>Journey Date</label>
+            <input type="date" [min]="minDate()" [max]="maxDate()" name="boardingTime" class="form-control"
+              formControlName="boardingTime" placeholder="boardingTime"
+              [class.is-invalid]="homeForm.controls['boardingTime'].touched && homeForm.controls['boardingTime'].invalid">
+          </div><br>
+          <button class="btn btn-primary" [disabled]="!homeForm.valid" id="button">Search Buses</button>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+</div>

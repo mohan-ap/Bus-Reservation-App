@@ -1,0 +1,35 @@
+<div class="body">
+  <div class="container">
+    <h2>{{ bus[0].busName }}<i class="fa-sharp fa-regular fa-loveseat"></i></h2>
+    <div class="row">
+
+      <div class="col-8">
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        <div class="row">
+          <div class="col-3" *ngFor="let seat of bus; let i = index">
+            <div class="seat" [class.available]="seat.status && !seat.selected" [class.unavailable]="!seat.status"
+            [class.selected]="seat.selected" [ngClass]="{'unclickable': !seat.status}" (click)="onSeatClick(seat)">
+            <i class="fas fa-loveseat"></i> {{ seat.seatNumber }}
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="footer" *ngIf="selectedSeatNumbers.length > 0">
+          <div class="selected-seats">
+            Seats:
+            <ul class="selected-seats-list">
+              <li *ngFor="let seatNumber of selectedSeatNumbers" class="selected-seat">{{ seatNumber }}</li>
+            </ul>
+          </div><br>
+          <div>Total Price: {{ totalPrice }}</div>
+          <hr>
+          <button (click)="book(selectedSeatNumbers, totalPrice, count)" class="btn btn-primary"
+            [disabled]="selectedSeatNumbers.length === 0">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

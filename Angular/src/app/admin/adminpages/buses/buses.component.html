@@ -1,0 +1,59 @@
+<div class="body">
+  <div class="container">
+    <h2>Available Buses</h2>
+    <ng-container  *ngIf="errorMessage; else historyFound" >
+      No buses Available
+    </ng-container>
+    <ng-template #historyFound>
+      <fieldset class="fs1">
+        <div class="row">
+          <div class="col">
+            <strong>Bus Name</strong>
+          </div>
+          <div class="col">
+            <strong>Available Seats</strong>
+          </div>
+          <div class="col">
+            <strong>Source</strong>
+          </div>
+          <div class="col">
+            <strong>Destination</strong>
+          </div>
+          <div class="col">
+            <strong>Start Time</strong>
+          </div>
+          <div class="col">
+            <strong>End Time</strong>
+          </div>
+          <div class="col">
+            <strong>duration</strong>
+          </div>
+          <div class="col" id="price">
+            <strong>Price (in Rs.)</strong>
+          </div>
+          <div class="col">
+            <strong>Action</strong>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="fs2">
+        <div class="row" *ngFor="let bus of buses; let i = index;">
+          <div class="row" id="buses">
+            <div class="col">{{ bus.busName }}</div>
+            <div class="col">{{ bus.numberOfSeats }}</div>
+            <div class="col">{{ bus.source }}</div>
+            <div class="col">{{ bus.destination }}</div>
+            <div class="col">{{ modifiedBuses[i]?.boardingTime }}</div>
+            <div class="col">{{ modifiedBuses[i]?.droppingTime }}</div>
+            <div class="col">{{ modifiedBuses[i]?.duration?.hours }}h:{{ modifiedBuses[i]?.duration?.minutes }}m</div>
+            <div class="col">{{ bus.price }}</div>
+            <div class="col">
+              <button (click)="book(bus._id)" class="btn btn-primary">view seats</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </ng-template>
+  </div>
+</div>

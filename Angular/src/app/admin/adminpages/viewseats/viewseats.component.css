@@ -1,0 +1,47 @@
+.seat {
+    background-color: #eee;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .available {
+    background-color: whitesmoke;
+    color:black;
+  }
+  
+  .unavailable {
+    background-color: #F44336;
+    color:black;
+  }
+  
+  .seat:hover {
+    background-color: #607D8B;
+    color:black;
+  }
+
+  .unclickable {
+    pointer-events: none;
+  }
+
+  h2{
+    margin: 30px;
+    text-align: center;
+  }
+
+.row{
+    border: 1px solid black;
+    background-color: rgb(174, 193, 212);
+    padding: 20px;
+}
+.selected{
+  background-color: #8BC34A;
+  color:black;
+}
+
+
+
+

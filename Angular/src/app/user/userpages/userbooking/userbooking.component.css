@@ -1,0 +1,78 @@
+.body{
+  background-color:lightgray;
+  padding: 20px;
+}
+
+.seat {
+    background-color: #eee;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .footer{
+    padding:20px;
+    margin: 20px;
+    background-color: #eee;
+  }
+  
+  .available {
+    background-color: whitesmoke;
+    color:black;
+  }
+  
+  .unavailable {
+    background-color: #F44336;
+    color:black;
+  }
+  
+  .seat:hover {
+    background-color: #607D8B;
+    color:black;
+  }
+
+  .unclickable {
+    pointer-events: none;
+  }
+
+  h2{
+    margin: 30px;
+    text-align: center;
+    color: rgb(14, 13, 13);
+  }
+
+.row{
+    background-color: rgb(114, 114, 114);
+    padding: 20px;
+}
+.selected{
+  background-color: #8BC34A;
+  color:black;
+}
+
+
+
+.btn{
+  color: white;
+  background-color: #020202;
+}
+
+.selected-seats {
+  display: flex;
+  align-items: center;
+}
+
+.selected-seats-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selected-seat {
+  margin-right: 10px;
+}
+
+

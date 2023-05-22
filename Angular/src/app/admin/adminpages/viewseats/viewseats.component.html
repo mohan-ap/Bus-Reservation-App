@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>{{ bus[0].busName }}</h2>
+    <div class="row">
+      <div class="col-3" *ngFor="let seat of bus; let i = index">
+        <div class="seat"
+             [class.available]="seat.status && !seat.selected"
+             [class.unavailable]="!seat.status"
+             [class.selected]="seat.selected"
+             (click)="openModal(seat)">
+          {{ seat.seatNumber }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

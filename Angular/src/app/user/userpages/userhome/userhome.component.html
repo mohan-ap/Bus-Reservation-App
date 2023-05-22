@@ -1,0 +1,68 @@
+<div class="body">
+  <div class="container">
+    <h2>Available Buses</h2>
+
+
+    <fieldset class="fs1">
+      <div class="row">
+        <div class="col">
+          <strong>Bus Name</strong>
+        </div>
+        <div class="col">
+          <strong>Source</strong>
+        </div>
+        <div class="col">
+          <strong>Destination</strong>
+        </div>
+        <div class="col">
+          <strong>Departure</strong><br>
+          <a [routerLink]="['/userpage/sorting']" [queryParams]="{sortBy: 'boarding',source:data2.source,destination:data2.destination,boardingTime:data2.boardingTime }">sort</a>
+        </div>
+        <div class="col">
+          <strong>Arrival</strong><br>
+          <a [routerLink]="['/userpage/sorting']" [queryParams]="{sortBy: 'droppingTime',source:data2.source,destination:data2.destination,boardingTime:data2.boardingTime }">sort</a>
+        </div>
+        <div class="col">
+          <strong>Duration</strong><br>
+          <a [routerLink]="['/userpage/sorting']" [queryParams]="{sortBy: 'duration',source:data2.source,destination:data2.destination,boardingTime:data2.boardingTime }">sort</a>
+        </div>
+        <div class="col" id="price">
+          <strong>Fare</strong><br>
+          <a [routerLink]="['/userpage/sorting']" [queryParams]="{sortBy: 'price',source:data2.source,destination:data2.destination,boardingTime:data2.boardingTime }">sort</a>
+        </div>
+        <div class="col">
+          <strong>Seats Available</strong><br>
+          <a [routerLink]="['/userpage/sorting']" [queryParams]="{sortBy: 'numberOfSeats',source:data2.source,destination:data2.destination,boardingTime:data2.boardingTime }">sort</a>
+        </div>
+        <div class="col">
+          <strong>Action</strong>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="fs2">
+      <div class="row" *ngFor="let bus of buses; let i = index;">
+        <div class="row" id="buses">
+          <div class="col">{{ bus.busName }}</div>
+          <div class="col">{{ bus.source }}</div>
+          <div class="col">{{ bus.destination }}</div>
+          <div class="col">{{ modifiedBuses[i]?.boardingTime }}</div>
+          <div class="col">{{ modifiedBuses[i]?.droppingTime }}</div>
+          <div class="col">{{ bus.duration}}</div>
+          <div class="col">{{ bus.price }}</div>
+          <div class="col">{{ bus.numberOfSeats }}</div>
+          <div class="col">
+            <button (click)="book(bus._id,bus.boardingTime,bus.source,bus.destination)" class="btn btn-primary">view seats</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <nav class="container">
+    <ul class="pagination">
+      <li class="page-item" *ngFor="let pageNumber of getPageRange(total)" [class.active]="pageNumber === currentPage">
+        <button class="page-link" href="#" (click)="setCurrentPage(pageNumber)">{{ pageNumber }}</button>
+      </li>
+    </ul>
+  </nav>
+</div>

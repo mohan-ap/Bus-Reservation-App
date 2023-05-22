@@ -1,0 +1,54 @@
+<div class="body">
+    <div class="container">
+        <div class="passengerForm">
+            <form [formGroup]="passenger" (ngSubmit)="pay()">
+                <p>Contact Information</p>
+                <div class="main">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="mail" formControlName="mail"
+                        [class.is-invalid]="passenger.controls['mail'].touched && passenger.controls['mail'].invalid"
+                        [value]="email || null" [disabled]="passenger.controls['mail'].value !== null">
+                              
+                        <div *ngIf=" passenger.controls['mail'].touched && passenger.controls['mail'].invalid">
+                            <small *ngIf="passenger.controls['mail'].errors && 
+            passenger.controls['mail'].errors['required']" class="text-danger">email is required</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile number</label>
+                        <input type="text" name="mobileNumber" formControlName="mobileNumber"
+                        [class.is-invalid]="passenger.controls['mobileNumber'].touched && passenger.controls['mobileNumber'].invalid">
+                        <div *ngIf=" passenger.controls['mobileNumber'].touched && passenger.controls['mobileNumber'].invalid">
+                            <small *ngIf="passenger.controls['mobileNumber'].errors && 
+            passenger.controls['mobileNumber'].errors['required']" class="text-danger">mobile number is required</small>
+                        </div>
+                    </div>
+                </div>
+                <p>Passenger Information</p>
+                <div class="passenger">
+                    <div formArrayName="passengers">
+                        <div *ngFor="let item of ticket; let i = index" [formGroupName]="i">
+                            <div class="passen">
+                                <p class="seat">Seat {{ item.seatNumber }}</p>
+                                <hr />
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" [name]="'passangerName' + i" formControlName="passangerName">
+                                </div>
+                                <div class="form-group">
+                                    <label>Age</label>
+                                    <input type="text" [name]="'age' + i" formControlName="age">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="proceed">
+                    <i class="price">Price: {{ data['totalprice'] }}</i>
+                    <button class="btn btn-primary float-right" [disabled]="!passenger.valid">Proceed</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
